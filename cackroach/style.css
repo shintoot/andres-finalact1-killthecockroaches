@@ -1,0 +1,271 @@
+body {
+  margin: 0;
+  background: black;
+  font-family: 'Poppins', sans-serif;
+  cursor: url('assets/img/slipper.png') auto;
+  overflow: hidden;
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+#hud, #gameOver {
+  color: white;
+}
+
+#topContainer {
+  position: relative;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  background: black;
+  padding: 10px 0;
+}
+
+#centerContainer {
+  margin: 30px auto;
+  width: 95%;
+  max-width: 1200px;
+  height: calc(100vh - 130px);
+  border-radius: 20px;
+  background: url('assets/img/background.jpg') center/cover no-repeat;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border: none;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+#hud {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 0;
+  z-index: 100;
+}
+
+#highScore, #timer, #killCount {
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#highScore {
+  position: absolute;
+  left: 10px;
+}
+
+#muteBtn {
+  position: absolute;
+  right: 10px;
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+  color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#muteBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+#timer, #killCount {
+  margin: 0 15px;
+  text-align: center;
+}
+
+#hud span {
+  margin-right: 15px;
+}
+
+#gameArea {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: black;
+  box-sizing: border-box;
+}
+
+.cockroach {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  transition: transform 0.2s;
+  cursor: url('assets/img/slipper.png') auto;
+}
+
+.cockroach.dead {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+#startBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  font-size: 20px;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+#startBtn:hover {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#gameOver {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 1000;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+#gameOver button {
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#gameOver button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+#hud, #gameOver, #highScore, #timer, #killCount, #muteBtn, #startBtn, #gameOver button {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#gameOver h1 {
+  font-size: 18px;
+}
+
+#gameTitle {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  margin: 20px 0;
+  padding: 10px 0;
+  background: black;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #topContainer {
+    padding: 10px 2%;
+  }
+
+  #centerContainer {
+    margin: 20px auto;
+    width: 90%;
+    height: calc(100vh - 150px);
+  }
+
+  #hud {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #highScore, #timer, #killCount {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  #muteBtn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  #startBtn {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  #gameOver {
+    width: 95%;
+    max-width: 350px;
+    padding: 15px;
+  }
+
+  #gameOver button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  #gameOver h1 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #hud {
+    font-size: 12px;
+  }
+
+  #highScore, #timer, #killCount {
+    font-size: 10px;
+  }
+
+  #muteBtn, #startBtn, #gameOver button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  #gameOver {
+    max-width: 300px;
+  }
+}
